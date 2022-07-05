@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body{
+    background-image: url(image/Graduates.jpg);
+    background-repeat: no-repeat;
+    height: 770px;
+    background-size: cover;
+    background-position: center;
+    flex-wrap: wrap;
+}
+
+.logo{
+    font-weight: 800;
+    font-size: 1.6em;
+    text-decoration: none;
+    color: #3a6cf4;
+  }
+.navigation{
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 500;
+    color: #3a6cf4;
+    padding: 10px 20px;
+}
+.navigation,.logo,label,#std_info{
+    color: white;
+}
+#nav{
+    background-color: black;
+}
+a.navigation:hover{
+    color: #601cfc;
+}
+header{
+    background-color: #f0f0f0;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 200px ;
+    margin-top: 0px;
+    flex-wrap: wrap;
+  }
+.form{
+    width: 390px;
+    padding: 10% 0 0;
+    margin: auto;
+
+}
+
+form{
+    position: relative;
+    background: rgb(0,0,0,0.6);
+    text-align: center;
+    padding: 45px;
+    margin: 0 auto 100px;
+}
+form input{
+    outline: none;
+    background-color: #f2f2f2;
+    width: 130px;
+    border: 0;
+    margin: 10px 15px ;
+    padding: 15px;
+
+}
+form label{
+    color: #f2f2f2;
+    size: 39px;
+}
+form button{
+    outline: 0;
+    background: orange;
+    width: 90%;
+    border: none;
+    padding: 15px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 17px;
+    margin: 15px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+form button:hover{
+    background-color: rgb(114, 164, 243);
+
+}
+p{
+    margin: 15px 0 0;
+    color: #fff;
+    font-size: 18px;
+}
+p a{
+    color: orange;
+}

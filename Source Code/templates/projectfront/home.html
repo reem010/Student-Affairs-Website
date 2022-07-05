@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+<body>
+    <header id="nav">
+        <a href="home.html" class="logo">Student affairs</a>
+        <nav>
+            <a href="{% url 'search' %}" class="navigation">Search</a>
+            <a href="{% url 'addstudent' %}" class="navigation">Add student</a>
+            <a href="{% url 'allstudents' %}" class="navigation">All students</a>
+            <a href="{% url 'login' %}" class="navigation">Login</a>
+       </nav>
+    </header>
+    <br><br><br>
+    <label class="wlc">
+        <h1>Welcome to Student Affairs Website</h1>
+        <h3>Fostering Student Learning and Success</h3>
+    </label>
+    <ul >
+        <li>
+            <a class="bars" href="outerpage.html">Back to outer page</a>
+        </li>
+    </ul>
+    <div id="motion-demo"></div>
+    <div id="motion-demo2"></div>
+</body>
+</html>

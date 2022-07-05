@@ -1,0 +1,91 @@
+﻿{% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Assign Department</title>
+    <link rel="stylesheet" href="{% static 'department.css' %}">
+    <script src="{% static 'department.js' %}"></script>
+
+</head>
+<body>
+    <header id="nav">
+        <a href="home.html" class="logo">Student affairs</a>
+        <nav>
+            <a href="{% url 'search' %}" class="navigation">Search</a>
+            <a href="{% url 'addstudent' %}" class="navigation">Add student</a>
+            <a href="{% url 'allstudents' %}" class="navigation">All students</a>
+            <a href="{% url 'login' %}" class="navigation">Login</a>
+       </nav>
+    </header>
+    <br><br>
+    <br>
+    
+    <center>
+        <h2 id="adders">
+            Assignment department page
+        </h2><br><br>
+    </center>
+    <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <center>
+        <div>
+        {% for fields in form %}
+        <div>
+            <label for="{{fields.id_for_label}}">{{fields.html_name}}</label>
+            {{fields}}
+        </div>
+        <br>
+    {% endfor %}
+</center>
+<!--
+    <form method="post" >
+        <label for="sname"><b>Student Name : </b></label>
+        <input type="text" id="stname" value="Ahmed Mohamed Ali" required placeholder="Name"><br>
+        <br>
+        <label for="sname"><b>Student ID     : </b></label>
+        <input type="text" id="sid" value="20201010" required placeholder="ID"><br><br>
+
+
+
+        <label for="departments">Avaliable Departments :</label>
+        <select name="departments" id="dpt" style="color:dodgerblue;width:300px ;height:25px " required="required">
+            <option value="">Choose an option</option>
+            <option value="1stdep">AI</option>
+            <option value="2nddep">IS</option>
+            <option value="3rddep">CS</option>
+            <option value="4thdep">IT</option>
+            <option value="5thdep">DS</option>
+
+        </select><br><br>-->
+        <center><input class="butt" type="submit" value= "Submit" onclick="confirmDep()"></center>
+    </form>
+    <center><h1 id="demo"></h1></center>
+</body>
+</html>
+
+
+<script>
+    $(document).ready(function() {  
+  $('form').on('submit', function(event) {  
+      event.preventDefault();  
+       
+      let userinfo = $(this).serializeArray();  
+      let user = {};  
+      userinfo.forEach((value) => {  
+          user[value.name] = value.value;  
+      });  
+      let url = "https://reqres.in/api/users";  
+      $.ajax({  
+          method: "POST",  
+          url: url,  
+          data: user  
+      }).done(function(msg) {  
+           
+          $('span').text();  
+      }).fail(function(err, textstatus, error) {  
+          $('span').text(textstatus);  
+      });  
+  });  
+});
+</script>

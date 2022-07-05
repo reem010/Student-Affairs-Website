@@ -1,0 +1,79 @@
+body {
+
+    background-image: url(image/dep.jpg);
+}
+
+form{
+    width: 550px;
+    padding: 10% 0 0;
+    margin: auto;
+    position: relative;
+    background: rgb(0,0,0,0.6);
+   text-align: left;
+    padding: 45px;
+   color:white;
+   margin: 0 auto 100px;
+}
+input{
+    outline: 0;
+    background: #4682B4;
+    width: fit-content;
+    border: none;
+    padding: 10px 10px;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 17px;
+    margin: 10px;
+}
+.departments{
+background: #4682B4;
+  font-size: 17px;
+    margin: 10px;
+}
+
+form input:hover 
+{
+  background-color:orange;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header{
+  background-color: #f0f0f0;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 200px ;
+}
+.logo{
+  font-weight: 800;
+  font-size: 1.6em;
+  text-decoration: none;
+  color: #3a6cf4;
+}
+.navigation{
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 500;
+  color: #3a6cf4;
+  padding: 10px 20px;
+}
+.navigation,.logo,label{
+  color: white;
+}
+#adders{
+  color: white;
+  margin-top: 1em;
+}
+a.navigation:hover{
+  color: #601cfc;
+}
+#nav{
+  background-color: black;
+}

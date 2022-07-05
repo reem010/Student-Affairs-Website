@@ -1,0 +1,228 @@
+{% load static %}
+<html>  
+<head> 
+        <link rel="stylesheet" href="{% static 'addstudent.css' %}"> 
+        <title>add student</title> 
+       
+        <header id="nav">
+            <a href="home.html" class="logo">Student affairs</a>
+            <nav>
+                <a href="{% url 'search' %}" class="navigation">Search</a>
+                <a href="{% url 'addstudent' %}" class="navigation">Add student</a>
+                <a href="{% url 'allstudents' %}" class="navigation">All students</a>
+                <a href="{% url 'login' %}" class="navigation">Login</a>
+           </nav>
+        </header>
+</head>  
+<body> 
+        <div class="container"> 
+       <form name="form1" action=""method="POST">
+        {% csrf_token %}
+        <h1><p> Add student page</p></h1> 
+        
+       
+        <div>
+           <input id="name" name="name" class ="st" type="text" pattern="[A-Za-z\s]{1,32}" placeholder="Enter your name here please" required > 
+        </div>
+        <div>
+            <input name="id" id ="id" class="st" type="number" placeholder="Enter your id here please" required > 
+        </div>
+        <div>
+            <input id ="level" class="st"type="number" name="level"  placeholder="Enter your level here please" required > 
+        </div>
+        <div>
+            <input id="email" name="email" class="st" type="email" placeholder="Enter your email here please" required> 
+        </div>
+        <div>
+            <input id="gpa" name="gpa" class="st"type="number" min="0.0" max="4.0" step="0.01" placeholder="Enter your gpa  here please" required > 
+            <label for="gpa"></label> 
+        </div>
+        <div>
+            <input id="phone" name="phone" class="st"type="number"  placeholder= "Enter your phone number here please" required > 
+        </div>
+        <div>
+            <h3>Birth date:</h3>
+            <input id="da" name="date"  class="st"type="date" required > 
+        </div>
+        <h3>Gender:<br></h3>  
+        <div>
+            <input id="fem" type="radio" name="gender" value="Female" required >  
+            <label class="ge" for="fem">Female</label> 
+        </div>
+        <div>
+            <input id="ma" type="radio" name="gender" value="Male" required >  
+            <label class="ge" for="ma">Male</label> 
+        </div>
+        <h3>Status:<br></h3> 
+        <div>
+            <input  id="act" type="radio" name="status"value="active" >  
+            <label class="os" for="act">active</label> 
+        </div>
+        <div>
+            <input  id="inact" type="radio" name="status" value="inactive" > 
+            <label  class="os" for="inact">inactive</label> 
+        </div> 
+        <h3>Select department:</h3>           
+        <div>
+            <input id="ai" type="radio" name="department"value="AI" required >  
+            <label for="ai">AI</label> 
+        </div> 
+        <div>
+            <input id="is" type="radio" name="department"value="IS" required >  
+            <label for="is">IS</label>
+        </div>
+        <div>
+            <input id="cs" type="radio" name="department"value="CS" required > 
+            <label for="cs">CS</label> 
+        </div>
+        <div>
+            <input id="it" type="radio" name="department"value="IT" required> 
+            <label for="it">IT</label>
+        </div>      
+        <div>
+            <input id="ds"type="radio" name="department"value="DS"required > 
+            <label for="ds">DS</label>
+        </div> 
+        <div>
+            <input id="general" type="radio" name="department"value="General"  required> 
+            <label for="general">General</label> 
+        </div> 
+        <div>
+            <button value="save" type="add" onclick="confirmAdd()"> add </button> <br>          
+        </div>  
+                      
+        </form>    
+       </div> 
+
+        <p id="demo"></p> 
+        <script src="{% static 'addstudent.js' %}"></script>   
+    </body> 
+</html>
+ <!--{% load static %}
+<html>  
+<head> 
+        <link rel="stylesheet" href="{% static 'addstudent.css' %}"> 
+        <title>add student</title> 
+       
+        <header id="nav">
+            <a href="home.html" class="logo">Student affairs</a>
+            <nav>
+                <a href="{% url 'search' %}" class="navigation">Search</a>
+                <a href="{% url 'addstudent' %}" class="navigation">Add student</a>
+                <a href="{% url 'department' %}" class="navigation">Assign department</a>
+                <a href="{% url 'update' %}" class="navigation">Update data</a>
+                <a href="{% url 'allstudents' %}" class="navigation">All students</a>
+                <a href="{% url 'login' %}" class="navigation">Login</a>
+           </nav>
+        </header>
+</head>  
+<body> 
+        <div class="container"> 
+       <form name="form1" action=""method="POST">
+        {% csrf_token %} 
+        <h1><p> Add student page</p></h1> 
+        {{form}}
+       
+       
+        <div>
+           <input id="name" name="name" class ="st" type="text" pattern="[A-Za-z\s]{1,32}" placeholder="Enter your name here please" required > 
+        </div>
+        <div>
+            <input name="id" id ="id" class="st" type="number" placeholder="Enter your id here please" required > 
+        </div>
+        <div>
+            <input id ="level" class="st"type="number" name="level" min="1" max="4" step="1" placeholder="Enter your level here please" required > 
+        </div>
+        <div>
+            <input id="email" name="email" class="st" type="email" placeholder="Enter your email here please" required> 
+        </div>
+        <div>
+            <input id="gpa" name="gpa" class="st"type="number" min="0.0" max="4.0" step="0.01" placeholder="Enter your gpa  here please" required > 
+            <label for="gpa"></label> 
+        </div>
+        <div>
+            <input id="phone" name="phone" class="st"type="number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder= "Enter your phone number here please" required > 
+        </div>
+        <div>
+            <h3>Birth date:</h3>
+            <input id="da" name="date"  class="st"type="date" required > 
+        </div>
+        <h3>Gender:<br></h3>  
+        <div>
+            <input id="fem" type="radio" name="gender" value="Female" required >  
+            <label class="ge" for="fem">Female</label> 
+        </div>
+        <div>
+            <input id="ma" type="radio" name="gender" value="Male" required >  
+            <label class="ge" for="ma">Male</label> 
+        </div>
+        <h3>Status:<br></h3> 
+        <div>
+            <input  id="act" type="radio" name="status"value="active" required >  
+            <label class="os" for="act">active</label> 
+        </div>
+        <div>
+            <input  id="inact" type="radio" name="status" value="inactive" required > 
+            <label  class="os" for="inact">inactive</label> 
+        </div> 
+        <h3>Select department:</h3>           
+        <div>
+            <input id="ai" type="radio" name="department"value="AI" required >  
+            <label for="ai">AI</label> 
+        </div> 
+        <div>
+            <input id="is" type="radio" name="department"value="IS" required >  
+            <label for="is">IS</label>
+        </div>
+        <div>
+            <input id="cs" type="radio" name="department"value="CS" required > 
+            <label for="cs">CS</label> 
+        </div>
+        <div>
+            <input id="it" type="radio" name="department"value="IT" required> 
+            <label for="it">IT</label>
+        </div>      
+        <div>
+            <input id="ds"type="radio" name="department"value="DS"required > 
+            <label for="ds">DS</label>
+        </div> 
+        <div>
+            <input id="general" type="radio" name="department"value="General"  required> 
+            <label for="general">General</label> 
+        </div> 
+        <div>
+            <button type="add" onclick="confirmAdd()"> add </button> <br>          
+        </div>  
+                      
+        </form>    
+       </div> 
+
+        <p id="demo"></p> 
+        <script src="{% static 'addstudent.js' %}"></script>   
+    </body> 
+</html>-->
+
+<script>
+    $(document).ready(function() {  
+  $('form').on('submit', function(event) {  
+      event.preventDefault();  
+       
+      let userinfo = $(this).serializeArray();  
+      let user = {};  
+      userinfo.forEach((value) => {  
+          user[value.name] = value.value;  
+      });  
+      let url = "https://reqres.in/api/users";  
+      $.ajax({  
+          method: "POST",  
+          url: url,  
+          data: user  
+      }).done(function(msg) {  
+           
+          $('span').text();  
+      }).fail(function(err, textstatus, error) {  
+          $('span').text(textstatus);  
+      });  
+  });  
+});
+</script>

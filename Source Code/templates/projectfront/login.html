@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="{% static 'log.css' %}">
+</head>
+<body>
+    <header id="nav">
+        <a href="home.html" class="logo">Student affairs</a>
+        <nav>
+            <a href="{% url 'search' %}" class="navigation">Search</a>
+            <a href="{% url 'addstudent' %}" class="navigation">Add student</a>
+            <a href="{% url 'allstudents' %}" class="navigation">All students</a>
+            <a href="{% url 'login' %}" class="navigation">Login</a>
+       </nav>
+    </header>
+    <br><br><br><br>
+    <div class="form">
+        <form action=" "method="POST">
+            {% csrf_token %}
+        
+        <div>
+            <label for="">Username</label>
+            <input id="username" name="username" type="text" placeholder="Enter Username" required>
+            <br>
+            <label for="">Password</label>
+            <input id="password"name="password" type="password" placeholder="Enter password" required>
+            
+            <button type="submit" value="save">Login</button>
+        </div>
+        
+        <div>
+            <p class="message">create an account? <a href="register.html">Register</a></p>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>
+<!--{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="{% static 'log.css' %}">
+</head>
+<body>
+    <header id="nav">
+        <a href="home.html" class="logo">Student affairs</a>
+        <nav>
+            <a href="{% url 'search' %}" class="navigation">Search</a>
+            <a href="{% url 'addstudent' %}" class="navigation">Add student</a>
+            <a href="{% url 'department' %}" class="navigation">Assign department</a>
+            <a href="{% url 'update' %}" class="navigation">Update data</a>
+            <a href="{% url 'allstudents' %}" class="navigation">All students</a>
+            <a href="{% url 'login' %}" class="navigation">Login</a>
+       </nav>
+    </header>
+    <br><br><br><br>
+    <div class="form">
+        <form action=" "method='POST'>
+            {% csrf_token %}
+            
+        
+        <div>
+            <label for="">Username</label>
+            <input name="username" type="text" placeholder="Enter Username" required>
+            <br>
+            <label for="">Password</label>
+            <input name="password" type="password" placeholder="Enter password" required>
+            
+            <button type="submit">Login</button>
+        </div>
+        
+        <div>
+            <p class="message">create an account? <a href="register.html">Register</a></p>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>-->

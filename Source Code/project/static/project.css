@@ -1,0 +1,98 @@
+body{
+  background-color: black;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header{
+  background-color: black;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 200px ;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+.logo{
+  font-weight: 800;
+  font-size: 1.6em;
+  text-decoration: none;
+  color: #3a6cf4;
+}
+.navigation{
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 500;
+  color: #3a6cf4;
+  padding: 10px 20px;
+}
+.navigation,.logo,label{
+  color: white;
+}
+a.navigation:hover{
+  color: #601cfc;
+}
+.tableforsearch{
+
+margin: 30px;
+padding: 20px;
+}
+.search_bar{
+  font-size: 20px;
+  color: #3a6cf4;
+  font-weight: 600;
+}
+#myInput{
+  border-radius: 2em;
+  padding: 10px;
+  margin-left: 20px;
+  border-style: solid;
+}
+caption{
+  font-size: 50px;
+  font-weight: 800;
+  color: white;
+  justify-content: center;
+  text-align: center;
+}
+th ,td{
+  border-bottom: 1px solid #dddddd;
+  padding: 20px;
+  margin: 20;
+  font-size: 14px;
+}
+th{
+  background-color: black;
+  color:beige;
+  font-weight: 800px;
+  font-size: 15px;
+}
+
+table{
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  background: transparent;
+  background-color:beige;
+  
+}
+td button{
+  border: none;
+  padding: 7px 20px;
+  background-color: black;
+  color:rgb(245, 236, 220);
+  border-radius: 20px;    
+
+}
+td button:hover{
+  background-color:orange ;
+}

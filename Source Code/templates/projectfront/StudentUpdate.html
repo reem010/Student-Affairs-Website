@@ -1,0 +1,147 @@
+{% load static %}
+<html>
+<head>
+
+    <title>student data page </title>
+    <link rel="stylesheet" href="{% static 'StudentUpdate.css' %}">
+    <script src="{% static 'StudentUpdate.js' %}"></script>
+</head>
+
+<body>
+
+    <header id="nav">
+        <a href="home.html" class="logo">Student affairs</a>
+        <nav>
+            <a href="{% url 'search' %}" class="navigation">Search</a>
+            <a href="{% url 'addstudent' %}" class="navigation">Add student</a>
+            <a href="{% url 'allstudents' %}" class="navigation">All students</a>
+            <a href="{% url 'login' %}" class="navigation">Login</a>
+       </nav>
+    </header>
+    <br><br><br><br>
+    <div id="std_info">
+        <center>
+            <h1>
+                Student Info
+            </h1>
+        </center>
+    </div>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            {% for fields in form %}
+            <div>
+                <label for="{{fields.id_for_label}}">{{fields.html_name}}</label>
+                {{fields}}
+
+            </div>
+            <br>
+
+        {% endfor %}
+
+
+            <!--<h3>
+                <label>Name: </label>  
+                <input id="name" type="text" pattern="[A-Za-z\s]{1,32}" placeholder="Enter your name" value="Ahmed Ali" required>
+            </h3>
+        </div><br>
+        <div>
+            <h3>
+                <label>ID:</label>  
+                <input id="id" type="number" placeholder="Enter your ID" min="0" value="20200001" required>
+            </h3>
+        </div><br>
+        <div>
+            <h3>
+                <label>level:</label>
+                <input id="level" type="number" name="number" min="1" max="4" step="1" value="1" required>
+            </h3>
+        </div><br>
+        <div>
+            <h3>
+                <label>Birth Date:</label>
+                <input type="date" value = "2014-02-09"required>
+            </h3>
+        </div><br>
+        <div>
+            <h3>
+                <label>Email:</label>
+                <input id="email" type="email" placeholder="Enter your Email" value="ahmed@gmail.com" required>
+            </h3>
+        </div><br>
+        <div>
+            <h3>
+                <label>GPA:</label>
+                <input id="gpa" type="number" min="0.0" max="4.0" step="0.01" value="3.0" required><br>
+            </h3>
+        </div><br>
+        <div>
+            <h3>
+                <label>Gender:</label><br>
+                <input id="fem" type="radio" name="1" value="Female" />
+                <label for="fem">Female</label><br>
+                <input id="ma" type="radio" name="1" value="Male" checked />
+                <label for="ma">Male</label>
+            </h3>
+        </div><br>
+        <div>
+            <h3>
+                <label>Phone number:</label>
+                <input id="phone" type="number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Enter your phone number" value="0103324254" required>
+            </h3>
+        </div><br>
+
+        <div>
+            <h3>
+                <label>Status:</label> <br>
+                <input id="act" type="radio" name="os" value="active" checked  >
+                <label for="act">active</label><br>
+                <input id="inact" type="radio" name="os" value="inactive" >
+                <label for="inact">inactive</label>
+            </h3>
+        </div><br>
+        <div>
+            <h3>
+                <label>Student department:</label>
+                <input id="dep" type="text" placeholder="Enter your department" readonly value="General" required>
+            </h3>
+        </div>
+        <a href = "> Delete student
+        </a>
+        
+        <button onclick="submitForm()" type="submit">
+            Assign department
+        </button>-->
+        <button onclick="confirmUpdate()" type="submit"> 
+            Update
+        </button>
+        <br>
+        
+</form>
+        <br>
+</body>
+</html>
+<script>
+    $(document).ready(function() {  
+  $('form').on('submit', function(event) {  
+      event.preventDefault();  
+       
+      let userinfo = $(this).serializeArray();  
+      let user = {};  
+      userinfo.forEach((value) => {  
+          user[value.name] = value.value;  
+      });  
+      let url = "https://reqres.in/api/users";  
+      $.ajax({  
+          method: "POST",  
+          url: url,  
+          data: user  
+      }).done(function(msg) {  
+           
+          $('span').text();  
+      }).fail(function(err, textstatus, error) {  
+          $('span').text(textstatus);  
+      });  
+  });  
+});
+</script>

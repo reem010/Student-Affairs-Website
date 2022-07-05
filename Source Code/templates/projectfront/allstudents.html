@@ -1,0 +1,232 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{% static 'allstudent.css' %}">
+   <script src="{% static 'StudentUpdate.js' %}"></script>
+   <title>allstudent</title>
+   </head>
+   <body>
+    <header id="nav">
+      <a href="home.html" class="logo">Student affairs</a>
+      <nav>
+          <a href="{% url 'search' %}" class="navigation">Search</a>
+          <a href="{% url 'addstudent' %}" class="navigation">Add student</a>
+          <a href="{% url 'allstudents' %}" class="navigation">All students</a>
+          <a href="{% url 'login' %}" class="navigation">Login</a>
+     </nav>
+  </header>
+  <br><br>
+  <br>
+    <table>
+      <tr> 
+      <th>Student Name</th> 
+      <th>Student id</th> 
+      <th>GPA</th> 
+      <th>Birth of date</th>
+      <th>Gender</th>
+      <th>Level</th>
+      <th>Departement</th>
+      <th>Email</th>
+      <th>Mobile number</th>
+      <th>Status</th>
+      <th>Update</th>
+      <th>Delete</th>
+      </tr>
+{% for x in student %}
+{% if x.status == 'active' or x.status == 'inactive' %}
+<tr>
+  <td >{{x.name}}</td>
+  <td >{{x.id}}</td>
+  <td >{{x.gpa}}</td>
+  <td >{{x.date}}</td>
+  <td>{{x.gender}}</td>
+  <td >{{x.level}}</td>
+  <td >{{x.department}}</td>
+  <td >{{x.email}}</td>
+  <td >{{x.phone}}</td>
+  <td class="state">
+    <button style="background-color: rgb(246, 191, 90);" ><a title="Change State" onclick="return change()"> <a class="link" href="{% url 'change' x.id  %}" style="text-decoration: none;  color: rgb(252, 252, 252);"><b> {{x.status}} </a></a></b></button>
+    </td>
+</td>
+<td>
+  <button style="background-color: rgb(255, 198, 91);" >
+  <a  href="{% url 'update' x.id %}" style="text-decoration: none;  color: white;" > Edit Info</a></button>
+</td>
+<td>
+  <button style="background-color: rgb(255, 201, 101);" >
+    <a  href="{% url 'delete' x.id %}" style="text-decoration: none;  color: white;" > Delete</a></button>
+
+</td>
+</tr>
+{% endif %}
+{% endfor %}
+     
+<!--<tr>
+  <td >Ahmed mohamed</td>
+  <td >20200000</td>
+  <td >3.2</td>
+  <td >28/2/2002</td>
+  <td >male</td>
+  <td >2</td>
+  <td >general</td>
+  <td >Ahmed3@gmail.com</td>
+  <td >02663268</td>
+  <td>
+    <label class="switch">
+      <input type="checkbox" id="togBtn">
+      <div class="slider round">
+       <span class="on">Active</span>
+       <span class="off">Inactive</span>
+      </div>
+     </label>
+</td>
+</tr>
+<tr>
+  <td >Mohamed Ali</td>
+  <td>20201209</td>
+  <td >3.5</td>
+  <td >6/7/2002</td>
+  <td >male</td>
+  <td >2</td>
+  <td >general</td>
+  <td >Mohamed5@yahoo.com</td>
+  <td >0236562</td>
+  <td>
+    <label class="switch">
+      <input type="checkbox" id="togBtn">
+      <div class="slider round">
+       <span class="on">Active</span>
+       <span class="off">Inactive</span>
+      </div>
+     </label>
+</td>
+</tr>
+<tr>
+  <td >Ali wael</td>
+  <td >20201524</td>
+  <td >3.7</td>
+  <td >3/4/2002</td>
+  <td >male</td>
+  <td >2</td>
+  <td >general</td>
+  <td >Ali9@gmail.com</td>
+  <td >026565</td>
+  <td>
+    <label class="switch">
+      <input type="checkbox" id="togBtn">
+      <div class="slider round">
+       <span class="on">Active</span>
+       <span class="off">Inactive</span>
+      </div>
+     </label>
+</td>
+</tr>
+<tr>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td>
+    <label class="switch">
+      <input type="checkbox" id="togBtn">
+      <div class="slider round">
+       <span class="on">Active</span>
+       <span class="off">Inactive</span>
+      </div>
+     </label>
+</td>
+</tr>-->
+
+<!--<tr>
+  <td ></td>
+  <td></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td>
+    <label class="switch">
+      <input type="checkbox" id="togBtn">
+      <div class="slider round">
+       <span class="on">Active</span>
+       <span class="off">Inactive</span>
+      </div>
+     </label>
+</td>
+</tr>
+<tr>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td>
+    <label class="switch">
+      <input type="checkbox" id="togBtn">
+      <div class="slider round">
+       <span class="on">Active</span>
+       <span class="off">Inactive</span>
+      </div>
+     </label>
+</td>
+</tr>
+<tr>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td>
+    <label class="switch">
+      <input type="checkbox" id="togBtn">
+      <div class="slider round">
+       <span class="on">Active</span>
+       <span class="off">Inactive</span>
+      </div>
+     </label>
+</td>
+</tr>
+<tr>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td ></td>
+  <td>
+    <label class="switch">
+      <input type="checkbox" id="togBtn">
+      <div class="slider round">
+       <span class="on">Active</span>
+       <span class="off">Inactive</span>
+      </div>
+     </label>
+</td>
+</tr>-->
+    </table>
+      </body>
+
+</html>
